@@ -41,9 +41,6 @@ namespace Requesting_system
             if (priority == "Select Priority")
             {
                 priority_Label.Visible = true;
-            }else if(priority != "Select Priority") 
-            {
-                priority_Label.Visible = false;
             }
             else if (des_Box.Visible == true && des_Box.Text == "")
             {
