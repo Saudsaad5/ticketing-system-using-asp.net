@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration.Provider;
 using System.Data;
@@ -33,27 +33,36 @@ namespace Requesting_system
 
         protected void save_Button_Click(object sender, EventArgs e)
         {
+           
             
-            String priority = DropDownList1.SelectedValue;
-            String description = des_Box.Text;
-            String details = det_Box.Text;
-            int emp_id = Convert.ToInt32(id_Box.Text);
-            if (priority == "Select Priority")
+            
+            if (String.IsNullOrEmpty(id_Box.Text))
+            {
+                id_Label.Visible = true;
+                return;
+            }
+            if (DropDownList1.SelectedValue == "Select Priority")
             {
                 priority_Label.Visible = true;
+                return;
             }
-            else if (des_Box.Visible == true && des_Box.Text == "")
+            if (DropDownList1.SelectedValue == "High Priority" && String.IsNullOrEmpty(des_Box.Text))
             {
-                priority_Label.Visible = false;
                 des_Label.Visible = true;
+                return;
             }
-            else if (det_Box.Text == "")
+            if(DropDownList1.SelectedValue != "High Priority")
             {
-                des_Label.Visible = false;
+                des_Box.Visible = false;
+                des_Box.Text= null;
+            }
+             if (String.IsNullOrEmpty(det_Box.Text))
+            { 
                 det_Label.Visible = true;
+                return;
             }
-            else
-            {
+            
+           
                 
                 
                     string fileName = Path.GetFileName(FileUpload1.FileName);
@@ -70,16 +79,16 @@ namespace Requesting_system
                     cmd.Connection = con;
                     cmd.CommandText = "insert_req_info";
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Priority", priority);
-                    cmd.Parameters.AddWithValue("@Description", description);
-                    cmd.Parameters.AddWithValue("@Details", details);
-                    cmd.Parameters.AddWithValue("@Employee_id", emp_id);
+                    cmd.Parameters.AddWithValue("@Priority", DropDownList1.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Description", des_Box.Text);
+                    cmd.Parameters.AddWithValue("@Details", det_Box.Text);
+                    cmd.Parameters.AddWithValue("@Employee_id", Convert.ToInt32(id_Box.Text));
                     cmd.Parameters.AddWithValue("@File", fileBytes);
                     cmd.Parameters.AddWithValue("@FileName", fileName);
                     cmd.ExecuteNonQuery();
                     Response.Redirect("reqlist.aspx");
                 }
-            }
+            
            
         }   
 
