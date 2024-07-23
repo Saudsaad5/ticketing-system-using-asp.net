@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="main_page.aspx.cs" Inherits="Requesting_system.WebForm1" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="main_page.aspx.cs" Inherits="Requesting_system.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -62,7 +62,9 @@
 
                <tr>
                    <td>
-                       <asp:FileUpload ID="FileUpload1" runat="server" AutoPostBack="True"/></td>
+                       <asp:FileUpload ID="FileUpload1" runat="server" AutoPostBack="True"/>
+                       <asp:Label CssClass="red" ID="file_label" Visible="false" runat="server" Text="Only PDF files are allowed."></asp:Label>
+                   </td>
                </tr>
 
                <tr>
