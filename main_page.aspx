@@ -30,7 +30,7 @@
                <tr>
                     <td>Employee ID:</td>
                           <td><asp:TextBox ID="id_Box" runat="server"></asp:TextBox>
-                          <asp:Label CssClass="red" Visible="false" ID="id_Label" runat="server" Text="Please enter your id."></asp:Label>
+                          
                               
                     </td>
                 </tr>
@@ -42,28 +42,33 @@
                          <asp:ListItem Value="Medium Priority">Medium Priority</asp:ListItem>
                          <asp:ListItem Value="Low Priority">Low Priority</asp:ListItem>
                          </asp:DropDownList>
-                         <asp:Label CssClass="red" Visible="false" ID="priority_Label" runat="server" Text="Please select a priority."></asp:Label>
+
                     </td>
                  </tr>
 
                <tr>
                    <td runat ="server" visible ="false" id="des_text">Desceription:</td>
                    <td><asp:TextBox Visible="false" ID="des_Box" runat="server"></asp:TextBox>
-                       <asp:Label CssClass="red" Visible="false" ID="des_Label" runat="server" Text="Please enter a desceription."></asp:Label>
                    </td>
                </tr>
 
                <tr>
                    <td>Details:</td>
                    <td><asp:TextBox ID="det_Box" runat="server" TextMode="MultiLine" Rows="3"></asp:TextBox>
-                       <asp:Label CssClass="red" Visible="false" ID="det_Label" runat="server" Text="Please enter your request details."></asp:Label>
+                       
                    </td>
                </tr>
 
                <tr>
                    <td>
                        <asp:FileUpload ID="FileUpload1" runat="server" AutoPostBack="True"/>
-                       <asp:Label CssClass="red" ID="file_label" Visible="false" runat="server" Text="Only PDF files are allowed."></asp:Label>
+                       
+                   </td>
+               </tr>
+               
+               <tr>
+                   <td>
+                       <asp:Label CssClass="red" Visible="false" ID="Error_label" runat="server" Text="Label"></asp:Label>
                    </td>
                </tr>
 
