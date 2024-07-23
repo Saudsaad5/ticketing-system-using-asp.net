@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -21,6 +21,7 @@ namespace Requesting_system
             }
             con.Open();
             disp_data();
+            
         }
 
         protected void back_Button_Click(object sender, EventArgs e)
@@ -37,8 +38,11 @@ namespace Requesting_system
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+            Rptrequest.DataSource = dt;
+            Rptrequest.DataBind();
         }
+        
+
+        
     }
 }
