@@ -12,11 +12,11 @@ namespace Requesting_system
 {
     public partial class Det_page : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=ONYX\SAUD;Initial Catalog=LEARNING;Persist Security Info=True;User ID=saud;Password=abcd");
+        SqlConnection con = new SqlConnection(@"Your Connction String");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) {
-               // test.Text = Session["viewbaseonreq"].ToString();
+               
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
