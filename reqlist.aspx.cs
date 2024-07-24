@@ -12,7 +12,7 @@ namespace Requesting_system
 {
     public partial class reqlist : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=ONYX\SAUD;Initial Catalog=LEARNING;Persist Security Info=True;User ID=saud;Password=abcd");
+        SqlConnection con = new SqlConnection(@"Your Connction String");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Open)
