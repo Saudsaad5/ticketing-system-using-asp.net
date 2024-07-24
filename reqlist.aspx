@@ -23,13 +23,14 @@
             <h1>All Requests:</h1>
             <table border="1">
                 <tr>
-                    <th>req_id</th>
-                    <th>priority</th>
-                    <th>desceription</th>
-                    <th>details</th>
-                    <th>employee_id</th>
-                    <th>time</th>
-                    <th>FileName</th>
+                    <th>Request id</th>
+                    <th>Priority</th>
+                    <th>Desceription</th>
+                    <th>Details</th>
+                    <th>Employee id</th>
+                    <th>Time</th>
+                    <th>File Name</th>
+                    <th>Request Details</th>
                 </tr>
                 <asp:Repeater ID="Rptrequest" runat="server">
                     <ItemTemplate>
@@ -42,7 +43,8 @@
                             <td><%# Eval("employee_id") %></td>
                             <td><%# Eval("time") %></td>
                             <td><%# Eval("FileName") %></td>
-                          
+                            <td><asp:Button ID="View_det_btn" runat="server" Text="details" req_id= <%# Eval("req_id") %> OnClick="View" /></td>
+
                         </tr>
                        
                     </ItemTemplate>
